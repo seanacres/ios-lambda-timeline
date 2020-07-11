@@ -347,8 +347,8 @@
                         <outlet property="imageView" destination="Q0L-w5-qUw" id="0v7-ZB-mgi"/>
                         <outlet property="imageViewAspectRatioConstraint" destination="y1B-iX-x3e" id="wIt-kh-Tzd"/>
                         <outlet property="titleLabel" destination="jyy-BX-c2c" id="UEd-xO-ipC"/>
-                        <segue destination="CK5-7f-Yev" kind="show" identifier="ShowTextCommentVC" id="ESh-tr-pRi"/>
-                        <segue destination="CK5-7f-Yev" kind="show" identifier="ShowAudioCommentVC" id="D5s-p1-hoV"/>
+                        <segue destination="CK5-7f-Yev" kind="presentation" identifier="ShowTextCommentVC" id="ESh-tr-pRi"/>
+                        <segue destination="CK5-7f-Yev" kind="presentation" identifier="ShowAudioCommentVC" id="D5s-p1-hoV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdL-Y3-4ej" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -360,11 +360,11 @@
             <objects>
                 <viewController id="CK5-7f-Yev" customClass="CommentViewController" customModule="LambdaTimeline" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TD2-Ce-LAD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="l4f-CL-fNs">
-                                <rect key="frame" x="16" y="735.5" width="382" height="96.5"/>
+                                <rect key="frame" x="16" y="681.5" width="382" height="96.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="W6n-GD-oA8">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
@@ -399,10 +399,17 @@
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add comment here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sag-XC-q5P">
-                                <rect key="frame" x="16" y="431" width="382" height="34"/>
+                                <rect key="frame" x="16" y="404" width="382" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rtn-qZ-jhf">
+                                <rect key="frame" x="350" y="30" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="CK5-7f-Yev" eventType="touchUpInside" id="hBb-c0-a11"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -410,18 +417,16 @@
                             <constraint firstItem="bhu-1p-C77" firstAttribute="bottom" secondItem="l4f-CL-fNs" secondAttribute="bottom" constant="30" id="Veg-le-a4E"/>
                             <constraint firstItem="sag-XC-q5P" firstAttribute="centerX" secondItem="TD2-Ce-LAD" secondAttribute="centerX" id="XeS-dL-xLg"/>
                             <constraint firstItem="bhu-1p-C77" firstAttribute="trailing" secondItem="sag-XC-q5P" secondAttribute="trailing" constant="16" id="bqd-O3-SKo"/>
+                            <constraint firstItem="Rtn-qZ-jhf" firstAttribute="top" secondItem="bhu-1p-C77" secondAttribute="top" constant="30" id="c13-vc-aR9"/>
                             <constraint firstItem="sag-XC-q5P" firstAttribute="centerY" secondItem="TD2-Ce-LAD" secondAttribute="centerY" id="f1p-zb-XcO"/>
                             <constraint firstItem="sag-XC-q5P" firstAttribute="leading" secondItem="bhu-1p-C77" secondAttribute="leading" constant="16" id="lRE-h3-dPb"/>
                             <constraint firstItem="bhu-1p-C77" firstAttribute="trailing" secondItem="l4f-CL-fNs" secondAttribute="trailing" constant="16" id="uhd-5y-1O0"/>
+                            <constraint firstItem="bhu-1p-C77" firstAttribute="trailing" secondItem="Rtn-qZ-jhf" secondAttribute="trailing" constant="30" id="vX0-v4-q14"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bhu-1p-C77"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jhb-vw-ZdA">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="K9d-at-BvT">
-                            <connections>
-                                <action selector="saveButtonTapped:" destination="CK5-7f-Yev" id="nwC-ay-Mcr"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="K9d-at-BvT"/>
                     </navigationItem>
                     <connections>
                         <outlet property="commentTextField" destination="sag-XC-q5P" id="L3w-4f-dcO"/>
@@ -435,7 +440,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="D5s-p1-hoV"/>
+        <segue reference="ESh-tr-pRi"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="mic.fill" catalog="system" width="108" height="128"/>

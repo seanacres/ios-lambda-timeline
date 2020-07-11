@@ -15,6 +15,10 @@ class ImagePostDetailTableViewController: UITableViewController {
         updateViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     func updateViews() {
         
         guard let imageData = imageData,
@@ -97,6 +101,10 @@ class ImagePostDetailTableViewController: UITableViewController {
         } else if segue.identifier == "ShowAudioCommentVC" {
             commentVC?.isAudioComment = true
         }
+    }
+    
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+        tableView.reloadData()
     }
     
     var post: Post!

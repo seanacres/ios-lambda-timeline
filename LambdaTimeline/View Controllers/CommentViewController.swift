@@ -179,7 +179,7 @@ class CommentViewController: UIViewController {
             guard let commentText = commentTextField?.text else { return }
             
             self.postController.addComment(with: commentText, to: &self.post!)
-            self.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "unwindCommentModal", sender: self)
         }
         
     }

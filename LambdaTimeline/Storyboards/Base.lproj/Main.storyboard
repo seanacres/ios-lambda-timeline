@@ -353,7 +353,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdL-Y3-4ej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1968.8" y="472.71364317841085"/>
+            <point key="canvasLocation" x="1968" y="467"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="u93-15-rPA">
@@ -432,9 +432,11 @@
                         <outlet property="commentTextField" destination="sag-XC-q5P" id="L3w-4f-dcO"/>
                         <outlet property="recordButton" destination="EKZ-VT-Bx4" id="lli-Ks-5qe"/>
                         <outlet property="recordingTimeLabel" destination="FYv-gs-Dpy" id="406-Qm-nFu"/>
+                        <segue destination="KCk-47-h6h" kind="unwind" identifier="unwindCommentModal" unwindAction="unwind:" id="d09-jb-G3g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9G-Hf-S2M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="KCk-47-h6h" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2763.768115942029" y="471.42857142857139"/>
         </scene>

@@ -40,8 +40,17 @@ class ImagePostDetailTableViewController: UITableViewController {
 //            textField.placeholder = "Comment:"
 //            commentTextField = textField
 //        }
-        let addTextCommentAction = UIAlertAction(title: "Text Comment", style: .default, handler: nil)
-        let addAudioCommentAction = UIAlertAction(title: "Audio Comment", style: .default, handler: nil)
+        let addTextCommentAction = UIAlertAction(title: "Text Comment", style: .default) { (_) in
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "ShowTextCommentVC", sender: nil)
+            }
+        }
+        
+        let addAudioCommentAction = UIAlertAction(title: "Audio Comment", style: .default) { (_) in
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "ShowAudioCommentVC", sender: nil)
+            }
+        }
         
 //        let addCommentAction = UIAlertAction(title: "Add Text Comment", style: .default) { (_) in
             
@@ -76,6 +85,16 @@ class ImagePostDetailTableViewController: UITableViewController {
         cell.detailTextLabel?.text = comment?.author.displayName
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowTextCommentVC" {
+            let commentVC = segue.destination as? CommentViewController
+            commentVC?.isAudioComment = false
+        } else if segue.identifier == "ShowAudioCommentVC" {
+            let commentVC = segue.destination as? CommentViewController
+            commentVC?.isAudioComment = true
+        }
     }
     
     var post: Post!

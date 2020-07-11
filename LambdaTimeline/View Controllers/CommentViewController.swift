@@ -14,12 +14,22 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var commentTextField: UITextField!
     
+    var isAudioComment: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        updateViews()
     }
     
+    private func updateViews() {
+        if isAudioComment {
+            commentTextField.isHidden = true
+        } else {
+            recordingTimeLabel.isHidden = true
+            recordButton.isHidden = true
+        }
+    }
 
     /*
     // MARK: - Navigation

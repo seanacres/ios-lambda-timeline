@@ -16,6 +16,8 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var commentTextField: UITextField!
     
     var isAudioComment: Bool = true
+    var postController: PostController!
+    var post: Post!
     
     weak var timer: Timer?
     
@@ -173,6 +175,12 @@ class CommentViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        if !isAudioComment {
+            guard let commentText = commentTextField?.text else { return }
+            
+            self.postController.addComment(with: commentText, to: &self.post!)
+            self.dismiss(animated: true, completion: nil)
+        }
         
     }
 }

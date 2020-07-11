@@ -88,11 +88,13 @@ class ImagePostDetailTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let commentVC = segue.destination as? CommentViewController
+        commentVC?.postController = postController
+        commentVC?.post = post
+        
         if segue.identifier == "ShowTextCommentVC" {
-            let commentVC = segue.destination as? CommentViewController
             commentVC?.isAudioComment = false
         } else if segue.identifier == "ShowAudioCommentVC" {
-            let commentVC = segue.destination as? CommentViewController
             commentVC?.isAudioComment = true
         }
     }

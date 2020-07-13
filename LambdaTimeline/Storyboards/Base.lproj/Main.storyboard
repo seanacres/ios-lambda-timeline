@@ -329,6 +329,55 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IxJ-3s-zDz" customClass="AudioCommentTableViewCell" customModule="LambdaTimeline" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="188.5" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IxJ-3s-zDz" id="2uC-qO-pR2">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="RcH-cH-yEN">
+                                            <rect key="frame" x="20" y="7" width="374" height="30.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWR-U8-JsX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="51.5" height="30.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SAb-yl-HNM">
+                                                    <rect key="frame" x="201.5" y="0.0" width="172.5" height="30.5"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywV-BZ-JBg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="15" height="30.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <state key="normal" image="play.fill" catalog="system"/>
+                                                            <state key="selected" image="pause.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="playButtonTapped:" destination="IxJ-3s-zDz" eventType="touchUpInside" id="xNl-Ry-yrA"/>
+                                                            </connections>
+                                                        </button>
+                                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="a7l-ql-YFE">
+                                                            <rect key="frame" x="21" y="0.0" width="153.5" height="31.5"/>
+                                                        </slider>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="RcH-cH-yEN" secondAttribute="bottom" constant="6.5" id="0uH-OW-Qvc"/>
+                                        <constraint firstAttribute="trailing" secondItem="RcH-cH-yEN" secondAttribute="trailing" constant="20" id="5zd-ch-Xbd"/>
+                                        <constraint firstItem="RcH-cH-yEN" firstAttribute="leading" secondItem="2uC-qO-pR2" secondAttribute="leading" constant="20" id="JzA-Cn-imw"/>
+                                        <constraint firstItem="RcH-cH-yEN" firstAttribute="top" secondItem="2uC-qO-pR2" secondAttribute="top" constant="7" id="Rai-QE-w6d"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="audioSlider" destination="a7l-ql-YFE" id="wvj-ci-g2i"/>
+                                    <outlet property="authorLabel" destination="yWR-U8-JsX" id="ElJ-lj-SAu"/>
+                                    <outlet property="playButton" destination="ywV-BZ-JBg" id="KTx-BX-nte"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="OyM-8q-Icp" id="hEW-Hv-MJ8"/>
@@ -353,7 +402,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdL-Y3-4ej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1968" y="467"/>
+            <point key="canvasLocation" x="1966.6666666666667" y="466.74107142857139"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="u93-15-rPA">
@@ -446,6 +495,8 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
+        <image name="pause.fill" catalog="system" width="116" height="128"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="stop.fill" catalog="system" width="128" height="113"/>
     </resources>
 </document>
